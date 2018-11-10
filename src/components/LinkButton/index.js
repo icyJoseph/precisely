@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "reactstrap";
 
-export function LinkButton({ callback, text }) {
+export function LinkButton({ color = "primary", callback, text }) {
   return (
-    <Button color="primary" onClick={callback}>
+    <Button color={color} onClick={callback}>
       {text}
     </Button>
   );
