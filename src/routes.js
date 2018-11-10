@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import NavBar from "./containers/NavBar";
 import Landing from "./containers/Landing";
 import Contracts from "./containers/Contracts";
 import Customers from "./containers/Customers";
@@ -8,12 +9,15 @@ import NoMatch from "./containers/NoMatch";
 
 export const Routes = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/contracts/:id" component={Contracts} />
-      <Route exact path="/customers/:id" component={Customers} />
-      <Route component={NoMatch} />
-    </Switch>
+    <Fragment>
+      <Route path="/:page" component={NavBar} />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/contracts" component={Contracts} />
+        <Route exact path="/customers" component={Customers} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Fragment>
   </BrowserRouter>
 );
 
