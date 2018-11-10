@@ -1,4 +1,4 @@
-import { toggleState } from "./";
+import { partial, toggleState } from "./";
 
 describe("toggleState", () => {
   const ctx = {
@@ -14,5 +14,13 @@ describe("toggleState", () => {
     const prev = ctx.state.test;
     toggleState.bind(ctx, "test")();
     expect(ctx.state.test).toEqual(!prev);
+  });
+});
+
+describe("partial", () => {
+  const add = (a, b) => a + b;
+  it("redefine a new function, which makes use of add", () => {
+    const add3 = partial(add)(3);
+    expect(add3(4)).toEqual(7);
   });
 });
