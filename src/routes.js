@@ -7,6 +7,8 @@ import Contracts from "./containers/Contracts";
 import Customers from "./containers/Customers";
 import NoMatch from "./containers/NoMatch";
 
+// NavBar renders when :page exists as a parameter
+// Then only one of Landing, Contracts or Customers renders
 export const Routes = () => (
   <BrowserRouter>
     <Fragment>

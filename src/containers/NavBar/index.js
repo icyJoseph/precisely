@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 import { toggleState } from "../../utils";
 import { PRECISELY, CUSTOMERS, CONTRACTS } from "../../constants";
 
+// Classic NavBar from BootStrap
+// It is used in the routes and therefore has access to match, history and location
+// renders the brand and two navigation links
 export class NavBar extends Component {
   state = {
     isOpen: false
