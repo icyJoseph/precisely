@@ -21,6 +21,10 @@ function withData(toRender) {
     componentDidMount() {
       // on mount we fire actions to populate the redux-store
       // these could be network requests
+      // Normally one would check for expiry dates on these data pieces
+      // Assumption: for this challenge, we fetch once and that's it,
+      // meaning that withData will wrap the Routes and not each container
+      // as it's done in commit: f19a3f4e93bc3b15a73b63ec9173270665b9dd0e
       this.props.initContracts(contracts);
       this.props.initCustomers(customers);
     }

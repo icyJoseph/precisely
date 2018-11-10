@@ -1,6 +1,5 @@
 import React from "react";
 
-import withData from "../WithData";
 import { LinkButton } from "../../components/LinkButton";
 import { routes } from "../../constants";
 import { goTo, partial } from "../../utils";
@@ -23,4 +22,4 @@ export function Landing({ history, ...props }) {
   );
 }
 
-export default withData(Landing);
+export default Landing;

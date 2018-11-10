@@ -1,6 +1,7 @@
 import React, { Fragment, lazy, Suspense } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import withData from "./containers/WithData";
 import Spinner from "./components/Spinner";
 
 // Define lazy imports
@@ -63,18 +64,34 @@ function SuspenseNoMatch(props) {
 
 // NavBar renders when :page exists as a parameter
 // Then only one of Landing, Contracts or Customers renders
-export const Routes = () => (
+// dataProps represents data passed from the withData HoC
+export const Routes = dataProps => (
   <BrowserRouter>
     <Fragment>
-      <Route path="/:page" component={SuspenseNavBar} />
+      <Route
+        path="/:page"
+        render={props => <SuspenseNavBar {...props} {...dataProps} />}
+      />
       <Switch>
-        <Route exact path="/" component={SuspenseLanding} />
-        <Route exact path="/contracts" component={SuspenseContracts} />
-        <Route exact path="/customers" component={SuspenseCustomers} />
+        <Route
+          exact
+          path="/"
+          render={props => <SuspenseLanding {...props} {...dataProps} />}
+        />
+        <Route
+          exact
+          path="/contracts"
+          render={props => <SuspenseContracts {...props} {...dataProps} />}
+        />
+        <Route
+          exact
+          path="/customers"
+          render={props => <SuspenseCustomers {...props} {...dataProps} />}
+        />
         <Route component={SuspenseNoMatch} />
       </Switch>
     </Fragment>
   </BrowserRouter>
 );
 
-export default Routes;
+export default withData(Routes);

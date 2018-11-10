@@ -1,7 +1,5 @@
 import React from "react";
 
-import withData from "../WithData";
-
 export function Customers({ contracts, customers }) {
   return (
     <div>
@@ -15,4 +13,4 @@ export function Customers({ contracts, customers }) {
   );
 }
 
-export default withData(Customers);
+export default Customers;
