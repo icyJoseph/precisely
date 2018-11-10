@@ -15,7 +15,7 @@ export function Landing({ history, ...props }) {
         <LinkButton
           key={route}
           callback={partial(goTo)(history, `/${route}`)}
-          text={`${route} (${props[route].length})`}
+          text={`${route} (${Object.keys(props[route]).length})`}
         />
       ))}
     </div>

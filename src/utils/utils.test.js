@@ -1,4 +1,4 @@
-import { goTo, partial, toggleState } from "./";
+import { goTo, partial, toggleState, arrayAsObjectById } from "./";
 
 describe("toggleState", () => {
   const ctx = {
@@ -31,5 +31,15 @@ describe("goTo", () => {
   it("calls push with the route", () => {
     goTo(history, route);
     expect(history.push).toHaveBeenCalledWith(route);
+  });
+});
+
+describe("arrayAsObjectById", () => {
+  const arr = [{ id: 0, name: "a" }, { id: 1, name: "b" }];
+  it("regroups by using id", () => {
+    expect(arrayAsObjectById(arr)).toEqual({
+      0: { id: 0, name: "a" },
+      1: { id: 1, name: "b" }
+    });
   });
 });

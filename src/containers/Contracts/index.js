@@ -5,8 +5,8 @@ export function Contracts({ contracts, customers }) {
     <div>
       <h1 className="display-3">Contracts</h1>
       <ul style={{ listStyle: "none" }}>
-        {contracts.map(({ id, name }) => (
-          <li key={id}>{name}</li>
+        {Object.keys(contracts).map(id => (
+          <li key={id}>{contracts[id].name}</li>
         ))}
       </ul>
     </div>

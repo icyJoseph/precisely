@@ -4,10 +4,14 @@ import withData from "./";
 import { customers, contracts } from "../../data";
 import { initCustomers } from "../../ducks/customers";
 import { initContracts } from "../../ducks/contracts";
+import { arrayAsObjectById } from "../../utils";
+
+const objCustomers = arrayAsObjectById(customers);
+const objContracts = arrayAsObjectById(contracts);
 
 const ToyComponent = ({ customers, contracts }) => (
   <div>
-    {customers.length} {contracts.length}
+    {Object.keys(customers).length} {Object.keys(contracts).length}
   </div>
 );
 
@@ -20,7 +24,10 @@ describe("withData", () => {
       store={{
         dispatch: spyDispatch,
         subscribe: jest.fn(),
-        getState: jest.fn(() => ({ customers, contracts }))
+        getState: jest.fn(() => ({
+          customers: objCustomers,
+          contracts: objContracts
+        }))
       }}
     />,
     { disableLifecycleMethods: false }
@@ -34,14 +41,14 @@ describe("withData", () => {
 
   it("calls the dispatch function twice!, with the data and types necessary", () => {
     expect(spyDispatch).toHaveBeenCalledTimes(2);
-    expect(spyDispatch).toHaveBeenCalledWith(initCustomers(customers));
-    expect(spyDispatch).toHaveBeenCalledWith(initContracts(contracts));
+    expect(spyDispatch).toHaveBeenCalledWith(initCustomers(objCustomers));
+    expect(spyDispatch).toHaveBeenCalledWith(initContracts(objContracts));
   });
 
   it("passes correct props to children", () => {
     const props = smoke.props();
-    expect(props.customers).toEqual(customers);
-    expect(props.contracts).toEqual(contracts);
+    expect(props.customers).toEqual(objCustomers);
+    expect(props.contracts).toEqual(objContracts);
     expect(smoke.render().text()).toEqual(
       `${customers.length} ${contracts.length}`
     );

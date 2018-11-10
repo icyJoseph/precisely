@@ -13,7 +13,7 @@ import "./index.css";
 const ReduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const initialState = { customers: [], contracts: [] };
+const initialState = { customers: {}, contracts: {} };
 
 const store = createStore(rootReducer, initialState, ReduxDevTools);
 

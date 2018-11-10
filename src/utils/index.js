@@ -13,3 +13,10 @@ export const partial = f => (...a) => (...b) => f(...a, ...b);
 
 // given a history object, call its push method with route as argument
 export const goTo = (history, route) => history.push(route);
+
+// reduce over an array and group as Object by id
+export const arrayAsObjectById = arr =>
+  arr.reduce(
+    (prev, { id, ...rest }) => ({ ...prev, [id]: { id, ...rest } }),
+    {}
+  );
