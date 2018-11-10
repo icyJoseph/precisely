@@ -10,3 +10,6 @@ export function toggleState(key) {
 // then take a second group of arguments
 // return the evaluation of the function with the first and second group
 export const partial = f => (...a) => (...b) => f(...a, ...b);
+
+// given a history object, call its push method with route as argument
+export const goTo = (history, route) => history.push(route);
