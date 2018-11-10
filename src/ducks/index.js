@@ -1,20 +1,11 @@
-// Only here for initial setup
+// rootReducer
+import { combineReducers } from "redux";
+import customers from "./customers";
+import contracts from "./contracts";
 
-const STATE_NAME = "CONTRACTS";
-const INIT_CONTRACTS = `${STATE_NAME} INIT`;
-
-export const initContracts = payload => ({
-  type: INIT_CONTRACTS,
-  payload
+const rootReducer = combineReducers({
+  customers,
+  contracts
 });
 
-function contracts(state = [], action) {
-  switch (action.type) {
-    case INIT_CONTRACTS:
-      return action.payload;
-    default:
-      return state;
-  }
-}
-
-export default contracts;
+export default rootReducer;
