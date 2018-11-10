@@ -1,4 +1,4 @@
-import { partial, toggleState } from "./";
+import { goTo, partial, toggleState } from "./";
 
 describe("toggleState", () => {
   const ctx = {
@@ -22,5 +22,14 @@ describe("partial", () => {
   it("redefine a new function, which makes use of add", () => {
     const add3 = partial(add)(3);
     expect(add3(4)).toEqual(7);
+  });
+});
+
+describe("goTo", () => {
+  const history = { push: jest.fn() };
+  const route = "/home";
+  it("calls push with the route", () => {
+    goTo(history, route);
+    expect(history.push).toHaveBeenCalledWith(route);
   });
 });
