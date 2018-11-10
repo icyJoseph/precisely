@@ -1,19 +1,11 @@
 import React from "react";
-import { Button } from "reactstrap";
-
+import { LinkButton } from "../../components/LinkButton";
 import { routes } from "../../constants";
-import { partial } from "../../utils";
+import { goTo, partial } from "../../utils";
 
-const goTo = (history, route) => history.push(route);
-
-function LinkButton({ callback, text }) {
-  return (
-    <Button color="primary" onClick={callback}>
-      {text}
-    </Button>
-  );
-}
-
+// Container to be used as landing page
+// Renders a welcome message
+// Renders two buttons to navigate to Customers or Contracts
 export function Landing({ history }) {
   return (
     <div>
