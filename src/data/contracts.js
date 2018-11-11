@@ -133,7 +133,7 @@ export default [
   },
   {
     id: "f550ceac-f33e-4e74-ac0e-25932d42c9ca",
-    name: "Rank",
+    name: "Ranking",
     customerId: "6b403864-a3f7-4d44-962b-0e84a76957d3"
   },
   {
@@ -378,7 +378,7 @@ export default [
   },
   {
     id: "1b594076-fdd2-4676-8b86-b626a2f6c54c",
-    name: "Stringtough",
+    name: "Stringify",
     customerId: "ad6225f6-a5a5-4fd9-affc-33246bca39c9"
   },
   {
@@ -413,7 +413,7 @@ export default [
   },
   {
     id: "54a02a27-273b-4b86-812a-99c499b44312",
-    name: "Stringtough",
+    name: "Tough",
     customerId: "66e9b0ca-2bcc-4ca4-8d66-548c11b03bd7"
   },
   {
@@ -453,7 +453,7 @@ export default [
   },
   {
     id: "5b5ed4e6-ffd0-41f8-960d-17d34a8ce1bf",
-    name: "Tresom",
+    name: "Sommar",
     customerId: "6cde7dd0-85d0-41df-81a4-c1a5b84a6d0c"
   },
   {
@@ -473,7 +473,7 @@ export default [
   },
   {
     id: "2e511b33-a535-496d-a91f-344f2158eb82",
-    name: "Stringtough",
+    name: "String",
     customerId: "6cde7dd0-85d0-41df-81a4-c1a5b84a6d0c"
   },
   {
