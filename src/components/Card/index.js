@@ -9,7 +9,7 @@ import {
   ListGroupItem
 } from "reactstrap";
 
-import LinkButton from "../LinkButton";
+import ActionButton from "../ActionButton";
 
 export function List(elems) {
   return (
@@ -42,7 +42,11 @@ function CommonCard({
           <CardTitle>{title}</CardTitle>
           {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
           {body}
-          <LinkButton color={buttonColor} callback={action} text={actionName} />
+          <ActionButton
+            color={buttonColor}
+            callback={action}
+            text={actionName}
+          />
         </CardBody>
       </Card>
     </div>

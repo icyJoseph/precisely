@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LinkButton } from "../../components/LinkButton";
+import ActionButton from "../../components/LinkButton";
 import { routes } from "../../constants";
 import { goTo, partial } from "../../utils";
 
@@ -12,7 +12,7 @@ export function Landing({ history, ...props }) {
     <div>
       <h1 className="display-3">Landing</h1>
       {routes.slice(1).map(route => (
-        <LinkButton
+        <ActionButton
           key={route}
           callback={partial(goTo)(history, `/${route}`)}
           text={`${route} (${Object.keys(props[route]).length})`}

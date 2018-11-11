@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Landing } from "./";
-import { LinkButton } from "../../components/LinkButton";
+import ActionButton from "../../components/ActionButton";
 
 import { customers, contracts } from "../../data";
 import { arrayAsObjectById } from "../../utils";
@@ -13,13 +13,13 @@ describe("renders the landing container", () => {
   const landing = shallow(
     <Landing customers={objCustomers} contracts={objContracts} />
   );
-  const buttons = landing.find(LinkButton);
+  const buttons = landing.find(ActionButton);
 
   it("renders", () => {
     expect(landing).toBeDefined();
   });
 
-  it("renders two LinkButtons", () => {
+  it("renders two ActionButtons", () => {
     expect(buttons).toHaveLength(2);
   });
 
