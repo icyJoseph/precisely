@@ -13,7 +13,7 @@ import ActionButton from "../ActionButton";
 
 export function List(elems) {
   return (
-    <div className="spaced-list">
+    <div className="spaced">
       <ListGroup flush>
         {elems.map(({ id, text }) => (
           <ListGroupItem key={id}>{text}</ListGroupItem>
@@ -23,8 +23,15 @@ export function List(elems) {
   );
 }
 
-export function Text(content) {
-  return <CardText>{content}</CardText>;
+export function Text(content, max = 35) {
+  const tooLong = content.length > max;
+  // if the text's too long, cut it at the max, and then find the next space,
+  // take that string stub and add it to the max,
+  // otherwise just get the content
+  const text = tooLong
+    ? `${content.slice(0, max)}${content.slice(max).split(" ")[0]}...`
+    : content;
+  return <CardText>{text}</CardText>;
 }
 
 function CommonCard({
@@ -38,17 +45,19 @@ function CommonCard({
   const body = Array.isArray(content) ? List(content) : Text(content);
 
   return (
-    <div>
+    <div className="spaced">
       <Card>
         <CardBody>
           <CardTitle>{title}</CardTitle>
           {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
           {body}
-          <ActionButton
-            color={buttonColor}
-            callback={action}
-            text={actionName}
-          />
+          <div className="centered-button">
+            <ActionButton
+              color={buttonColor}
+              callback={action}
+              text={actionName}
+            />
+          </div>
         </CardBody>
       </Card>
     </div>

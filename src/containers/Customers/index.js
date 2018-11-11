@@ -1,13 +1,13 @@
 import React from "react";
 import Card from "../../components/Card";
-
+import { CUSTOMERS } from "../../constants";
 import { partial } from "../../utils";
 
 export function Customers({ contracts, customers, deleteCustomer }) {
   return (
     <div>
-      <h1 className="display-3">Customers</h1>
-      <div>
+      <h1 className="display-3">{CUSTOMERS}</h1>
+      <div className="card-grid">
         {Object.keys(customers).map(customerId => {
           // get customer meta data
           const { name } = customers[customerId];

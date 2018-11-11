@@ -58,6 +58,18 @@ h1 {
   margin: 5px 10px;
 }
 
-.spaced-list {
+.spaced {
   margin: 5px;
+}
+
+.centered-button {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }

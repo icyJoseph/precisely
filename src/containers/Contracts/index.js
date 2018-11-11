@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../components/Card";
-import { content } from "../../constants";
+import { content, CONTRACTS } from "../../constants";
 import { partial } from "../../utils";
 
 const tempAction = id => console.log("clicked ", id);
@@ -8,8 +8,8 @@ const tempAction = id => console.log("clicked ", id);
 export function Contracts({ contracts, customers }) {
   return (
     <div>
-      <h1 className="display-3">Contracts</h1>
-      <div>
+      <h1 className="display-3">{CONTRACTS}</h1>
+      <div className="card-grid">
         {Object.keys(contracts).map(contractId => {
           // get the meta data of the contract
           const { name, customerId } = contracts[contractId];
