@@ -46,7 +46,7 @@ function CommonCard({
   const body = contentIsArray ? List(content) : Text(content);
 
   return (
-    <div className="spaced">
+    <div className="spaced fixed-width">
       <Card>
         <CardBody>
           <CardTitle>{title}</CardTitle>
