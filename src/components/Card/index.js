@@ -42,22 +42,34 @@ function CommonCard({
   actionName = "Open",
   buttonColor = "primary"
 }) {
-  const body = Array.isArray(content) ? List(content) : Text(content);
+  const contentIsArray = Array.isArray(content);
+  const body = contentIsArray ? List(content) : Text(content);
 
   return (
     <div className="spaced">
       <Card>
         <CardBody>
           <CardTitle>{title}</CardTitle>
+          {contentIsArray && (
+            <div className="centered-button">
+              <ActionButton
+                color={buttonColor}
+                callback={action}
+                text={actionName}
+              />
+            </div>
+          )}
           {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
           {body}
-          <div className="centered-button">
-            <ActionButton
-              color={buttonColor}
-              callback={action}
-              text={actionName}
-            />
-          </div>
+          {!contentIsArray && (
+            <div className="centered-button">
+              <ActionButton
+                color={buttonColor}
+                callback={action}
+                text={actionName}
+              />
+            </div>
+          )}
         </CardBody>
       </Card>
     </div>
