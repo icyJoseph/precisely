@@ -5,10 +5,11 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
   ListGroup,
   ListGroupItem
 } from "reactstrap";
+
+import LinkButton from "../LinkButton";
 
 export function List(elems) {
   return (
@@ -24,7 +25,14 @@ export function Text(content) {
   return <CardText>{content}</CardText>;
 }
 
-function CommonCard({ title, subtitle, content, action, actionName = "Open" }) {
+function CommonCard({
+  title,
+  subtitle,
+  content,
+  action,
+  actionName = "Open",
+  buttonColor = "primary"
+}) {
   const body = Array.isArray(content) ? List(content) : Text(content);
 
   return (
@@ -34,7 +42,7 @@ function CommonCard({ title, subtitle, content, action, actionName = "Open" }) {
           <CardTitle>{title}</CardTitle>
           {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
           {body}
-          <Button onClick={action}>{actionName}</Button>
+          <LinkButton color={buttonColor} callback={action} text={actionName} />
         </CardBody>
       </Card>
     </div>
