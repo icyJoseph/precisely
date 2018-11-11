@@ -47,3 +47,4 @@ Be prepared to motivate your decisions with regards to technologies, scalability
 - Live contract/customer counter -> done
 - Icons to turn into a PWA -> done
 - Single card view (optional)
+- Add Solution section in README
