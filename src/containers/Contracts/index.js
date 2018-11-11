@@ -6,11 +6,14 @@ import { partial } from "../../utils";
 const tempAction = id => console.log("clicked ", id);
 
 export function Contracts({ contracts, customers }) {
+  const contractIds = Object.keys(contracts);
   return (
     <div>
-      <h1 className="display-3">{CONTRACTS}</h1>
+      <h1 className="display-3">
+        {CONTRACTS} {`(${contractIds.length})`}
+      </h1>
       <div className="card-grid">
-        {Object.keys(contracts).map(contractId => {
+        {contractIds.map(contractId => {
           // get the meta data of the contract
           const { name, customerId } = contracts[contractId];
           const customer = customers[customerId].name;

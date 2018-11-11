@@ -44,6 +44,6 @@ Be prepared to motivate your decisions with regards to technologies, scalability
 ## TODO
 
 - Back to top button
-- Live contract/customer counter
-- Icons to turn into a PWA
+- Live contract/customer counter -> done
+- Icons to turn into a PWA -> done
 - Single card view (optional)

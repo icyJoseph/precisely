@@ -4,11 +4,14 @@ import { CUSTOMERS } from "../../constants";
 import { partial } from "../../utils";
 
 export function Customers({ contracts, customers, deleteCustomer }) {
+  const customersIds = Object.keys(customers);
   return (
     <div>
-      <h1 className="display-3">{CUSTOMERS}</h1>
+      <h1 className="display-3">
+        {CUSTOMERS} {`(${customersIds.length})`}
+      </h1>
       <div className="card-grid">
-        {Object.keys(customers).map(customerId => {
+        {customersIds.map(customerId => {
           // get customer meta data
           const { name } = customers[customerId];
           // get all contracts as content of the card
