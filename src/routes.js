@@ -22,7 +22,7 @@ const LazyNoMatch = lazy(() =>
 );
 
 // Define suspenseful functions
-function SuspenseNavBar(props) {
+export function SuspenseNavBar(props) {
   return (
     <Suspense fallback={<Spinner />}>
       <LazyNavBar {...props} />
@@ -30,7 +30,7 @@ function SuspenseNavBar(props) {
   );
 }
 
-function SuspenseLanding(props) {
+export function SuspenseLanding(props) {
   return (
     <Suspense fallback={<Spinner />}>
       <LazyLanding {...props} />
@@ -38,7 +38,7 @@ function SuspenseLanding(props) {
   );
 }
 
-function SuspenseContracts(props) {
+export function SuspenseContracts(props) {
   return (
     <Suspense fallback={<Spinner />}>
       <LazyContracts {...props} />
@@ -46,7 +46,7 @@ function SuspenseContracts(props) {
   );
 }
 
-function SuspenseCustomers(props) {
+export function SuspenseCustomers(props) {
   return (
     <Suspense fallback={<Spinner />}>
       <LazyCustomers {...props} />
@@ -54,7 +54,7 @@ function SuspenseCustomers(props) {
   );
 }
 
-function SuspenseNoMatch(props) {
+export function SuspenseNoMatch(props) {
   return (
     <Suspense fallback={<Spinner />}>
       <LazyNoMatch {...props} />
