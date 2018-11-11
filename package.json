@@ -18,8 +18,8 @@
     "test": "react-scripts test",
     "test-coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "publish": "surge --project ./build --domain https://zonked-test.surge.sh",
-    "deploy": "yarn test-coverage && yarn build && yarn publish"
+    "surge-deploy": "surge --project ./build --domain https://zonked-test.surge.sh",
+    "deploy": "yarn test-coverage && yarn build && yarn surge-deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
