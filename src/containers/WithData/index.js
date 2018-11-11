@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { initContracts } from "../../ducks/contracts";
-import { initCustomers } from "../../ducks/customers";
+import { initCustomers, deleteCustomer } from "../../ducks/customers";
 import { customers, contracts } from "../../data";
 import { arrayAsObjectById } from "../../utils";
 
@@ -68,10 +68,11 @@ function withData(toRender) {
   });
 
   // allow dispatch of these two actions
-  const mapDispatchToProps = {
-    initContracts,
-    initCustomers
-  };
+  const mapDispatchToProps = dispatch => ({
+    initContracts: args => dispatch(initContracts(args)),
+    initCustomers: args => dispatch(initCustomers(args)),
+    deleteCustomer: deleteCustomer(dispatch)
+  });
 
   return connect(
     mapStateToProps,

@@ -3,9 +3,7 @@ import Card from "../../components/Card";
 
 import { partial } from "../../utils";
 
-const tempAction = id => console.log("clicked ", id);
-
-export function Customers({ contracts, customers }) {
+export function Customers({ contracts, customers, deleteCustomer }) {
   return (
     <div>
       <h1 className="display-3">Customers</h1>
@@ -23,12 +21,13 @@ export function Customers({ contracts, customers }) {
               text: contracts[contractId].name
             }));
 
+          // get all contract ids for the current customer
           return (
             <Card
               key={customerId}
               title={name}
               content={content}
-              action={partial(tempAction)(customerId)}
+              action={partial(deleteCustomer)(customerId, content)}
               actionName="Delete"
               buttonColor="danger"
             />
