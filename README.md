@@ -40,3 +40,10 @@ You will be assessed mainly based a joint follow-up discussion of your implement
 Emphasis will be put on code quality and why you made the design decisions you made.
 
 Be prepared to motivate your decisions with regards to technologies, scalability, folder structure, naming and component/container hierarchy.
+
+## TODO
+
+- Back to top button
+- Live contract/customer counter
+- Icons to turn into a PWA
+- Single card view (optional)
