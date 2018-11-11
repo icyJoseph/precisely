@@ -22,6 +22,27 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/serviceWorker.js",
+      "!src/ducks/index.js",
+      "!src/setupTests.js",
+      "!src/index.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
