@@ -13,11 +13,13 @@ import ActionButton from "../ActionButton";
 
 export function List(elems) {
   return (
-    <ListGroup>
-      {elems.map(({ id, text }) => (
-        <ListGroupItem key={id}>{text}</ListGroupItem>
-      ))}
-    </ListGroup>
+    <div className="spaced-list">
+      <ListGroup flush>
+        {elems.map(({ id, text }) => (
+          <ListGroupItem key={id}>{text}</ListGroupItem>
+        ))}
+      </ListGroup>
+    </div>
   );
 }
 

@@ -2,10 +2,11 @@
 // NOT in DUCKS!
 
 export const PRECISELY = "Precisely";
+export const MAIN_TITLE = "The Contract Automation Platform";
 export const CUSTOMERS = "Customers";
 export const CONTRACTS = "Contracts";
 
-export const routes = ["", "contracts", "customers"];
+export const routes = ["contracts", "customers"];
 
 export const content = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

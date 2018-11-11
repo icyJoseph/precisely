@@ -1,7 +1,7 @@
 import React from "react";
 
-import ActionButton from "../../components/LinkButton";
-import { routes } from "../../constants";
+import ActionButton from "../../components/ActionButton";
+import { MAIN_TITLE, routes } from "../../constants";
 import { goTo, partial } from "../../utils";
 
 // Container to be used as landing page
@@ -9,15 +9,20 @@ import { goTo, partial } from "../../utils";
 // Renders two buttons to navigate to Customers or Contracts
 export function Landing({ history, ...props }) {
   return (
-    <div>
-      <h1 className="display-3">Landing</h1>
-      {routes.slice(1).map(route => (
-        <ActionButton
-          key={route}
-          callback={partial(goTo)(history, `/${route}`)}
-          text={`${route} (${Object.keys(props[route]).length})`}
-        />
-      ))}
+    <div className="landing">
+      <div className="landing-title">
+        <h1 className="display-3">{MAIN_TITLE}</h1>
+      </div>
+      <div className="landing-action-buttons">
+        {routes.map(route => (
+          <ActionButton
+            key={route}
+            callback={partial(goTo)(history, `/${route}`)}
+            text={`${route} (${Object.keys(props[route]).length})`}
+            className="spaced-button"
+          />
+        ))}
+      </div>
     </div>
   );
 }

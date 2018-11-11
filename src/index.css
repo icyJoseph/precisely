@@ -17,3 +17,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1 {
+  font-size: 3em !important;
+  padding: 3px;
+}
+
+@media (min-width: 500px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.landing-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.landing-action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.spaced-button {
+  margin: 5px 10px;
+}
+
+.spaced-list {
+  margin: 5px;
+}
