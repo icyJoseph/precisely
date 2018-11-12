@@ -1,5 +1,14 @@
 # PRECISELY FRONTEND CODE ASSIGNMENT
 
+Solution demo available [here](https://zonked-test.surge.sh/).
+
+Test Coverage:
+| % Stmts | % Branch | % Funcs | % Lines |
+-----------------------------|----------|----------|----------|----------|
+91.02 | 89.36 | 80.56 | 90.85
+
+## THE PROBLEM
+
 The task is to create a sample contract automation platform. The platform will be split into three pages:
 
 1. The homepage, which job is to link to the two other pages.
@@ -40,11 +49,3 @@ You will be assessed mainly based a joint follow-up discussion of your implement
 Emphasis will be put on code quality and why you made the design decisions you made.
 
 Be prepared to motivate your decisions with regards to technologies, scalability, folder structure, naming and component/container hierarchy.
-
-## TODO
-
-- Back to top button
-- Live contract/customer counter -> done
-- Icons to turn into a PWA -> done
-- Single card view (optional)
-- Add Solution section in README
