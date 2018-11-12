@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { lazy, Suspense, Component } from "react";
 import Card from "../../components/Card";
-import Confirmation from "../../components/Confirmation";
 import { CUSTOMERS, DELETE } from "../../constants";
-import { partial, toggleState } from "../../utils";
+import { partial, toggleState, toInitialState } from "../../utils";
+import Spinner from "../../components/Spinner";
 
 const initialState = {
   showModal: false,
@@ -10,8 +10,16 @@ const initialState = {
   selectedCustomerContracts: []
 };
 
-function toInitialState(initialState) {
-  return this.setState({ ...initialState });
+const LazyConfirmation = lazy(() =>
+  import(/* webpackChunkName: "lazy-confirmation" */ "../../components/Confirmation")
+);
+
+export function SuspensefulConfirmation(props) {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <LazyConfirmation {...props} />
+    </Suspense>
+  );
 }
 
 export class Customers extends Component {
@@ -74,7 +82,7 @@ export class Customers extends Component {
           })}
         </div>
         {showModal && (
-          <Confirmation
+          <SuspensefulConfirmation
             customer={currentCustomer}
             contracts={selectedCustomerContracts}
             showModal={showModal}

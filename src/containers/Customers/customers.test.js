@@ -1,8 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Customers } from "./";
+import { Customers, SuspensefulConfirmation } from "./";
 import Card from "../../components/Card";
-import Confirmation from "../../components/Confirmation";
 
 import { customers, contracts } from "../../data";
 import { arrayAsObjectById } from "../../utils";
@@ -20,7 +19,7 @@ describe("renders the contracts container", () => {
   });
 
   it("does not show confirmation Modal initially", () => {
-    expect(container.find(Confirmation)).toHaveLength(0);
+    expect(container.find(SuspensefulConfirmation)).toHaveLength(0);
   });
 
   it("changes Modal state when clicking a card", () => {
@@ -41,11 +40,11 @@ describe("renders the contracts container", () => {
   });
 
   it("shows the confirmation modal", () => {
-    expect(container.find(Confirmation)).toHaveLength(1);
+    expect(container.find(SuspensefulConfirmation)).toHaveLength(1);
   });
 
   it("closes the modal and clears the state", () => {
-    container.find(Confirmation).prop("close")();
+    container.find(SuspensefulConfirmation).prop("close")();
     const finalState = container.state();
     const {
       showModal,
