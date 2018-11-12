@@ -45,3 +45,8 @@ export function useToggleOnScroll(key) {
     return value && toggle();
   }
 }
+
+// set the state back to a given initial state;
+export function toInitialState(initialState) {
+  return this.setState({ ...initialState });
+}

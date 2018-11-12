@@ -4,7 +4,8 @@ import {
   toggleState,
   arrayAsObjectById,
   useToggleOnScroll,
-  sequence
+  sequence,
+  toInitialState
 } from "./";
 
 describe("toggleState", () => {
@@ -135,5 +136,18 @@ describe("sequence", () => {
   sequence(...fns);
   it("called all functions once", () => {
     expect(fn).toHaveBeenCalledTimes(10);
+  });
+});
+
+describe("toInitialState", () => {
+  const ctx = {
+    setState: jest.fn()
+  };
+  const initialState = { show: false };
+
+  const bound = toInitialState.bind(ctx);
+  it("sets the state with initial state", () => {
+    bound(initialState);
+    expect(ctx.setState).toHaveBeenCalledWith(initialState);
   });
 });
