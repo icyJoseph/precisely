@@ -27,7 +27,7 @@ export class Tools extends Component {
             onClick={this.scrollToTop}
             outline
             color="info"
-            style={{ background: "white" }}
+            className="button-tools"
           >
             Top
           </Button>
