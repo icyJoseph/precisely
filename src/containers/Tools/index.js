@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { toggleState, useToggleOnScroll } from "../../utils";
+import { BACK_TOP } from "../../constants";
 
 export class Tools extends Component {
   state = { show: false };
@@ -29,7 +30,7 @@ export class Tools extends Component {
             color="info"
             className="button-tools"
           >
-            Top
+            {BACK_TOP}
           </Button>
         </div>
       )

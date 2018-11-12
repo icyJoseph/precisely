@@ -89,6 +89,8 @@ h1 {
 
 .button-tools {
   position: fixed;
+  min-width: 100px;
+  bottom: 50px;
   background: rgba(255, 255, 255, 0.9);
   z-index: 10;
 }
