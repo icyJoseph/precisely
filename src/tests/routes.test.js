@@ -6,7 +6,8 @@ import {
   SuspenseLanding,
   SuspenseContracts,
   SuspenseCustomers,
-  SuspenseNoMatch
+  SuspenseNoMatch,
+  SuspenseTools
 } from "../routes";
 
 describe("Routes", () => {
@@ -37,6 +38,10 @@ describe("Suspense", () => {
   });
   it("renders NoMatch", () => {
     const wrapper = shallow(<SuspenseNoMatch />);
+    expect(wrapper).toBeDefined();
+  });
+  it("renders NoMatch", () => {
+    const wrapper = shallow(<SuspenseTools />);
     expect(wrapper).toBeDefined();
   });
 });

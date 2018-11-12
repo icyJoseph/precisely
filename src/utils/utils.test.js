@@ -5,8 +5,11 @@ import {
   arrayAsObjectById,
   useToggleOnScroll,
   sequence,
-  toInitialState
+  toInitialState,
+  messageHandler
 } from "./";
+
+import { WORKER_UPDATE } from "../constants";
 
 describe("toggleState", () => {
   const ctx = {
@@ -149,5 +152,21 @@ describe("toInitialState", () => {
   it("sets the state with initial state", () => {
     bound(initialState);
     expect(ctx.setState).toHaveBeenCalledWith(initialState);
+  });
+});
+
+describe("messageHandler", () => {
+  const ctx = {
+    setState: jest.fn()
+  };
+
+  const evt = { data: { type: WORKER_UPDATE } };
+  const expectedArg = { update: true };
+
+  const fn = messageHandler.bind(ctx);
+
+  it("applies the expected state", () => {
+    fn(evt);
+    expect(ctx.setState).toHaveBeenCalledWith(expectedArg);
   });
 });

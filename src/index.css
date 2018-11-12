@@ -87,10 +87,18 @@ h1 {
   position: absolute;
 }
 
-.button-tools {
+.back-top-button {
   position: fixed;
   min-width: 100px;
   bottom: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+}
+
+.update-button {
+  position: fixed;
+  min-width: 100px;
+  top: 50px;
   background: rgba(255, 255, 255, 0.9);
   z-index: 10;
 }

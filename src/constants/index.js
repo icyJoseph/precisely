@@ -18,3 +18,5 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 export const DELETE = "Delete";
 export const CANCEL = "Cancel";
 export const BACK_TOP = "Back To Top";
+export const UPDATE = "New Version. Click to update.";
+export const WORKER_UPDATE = "WORKER_UPDATE";

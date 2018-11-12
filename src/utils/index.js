@@ -1,3 +1,5 @@
+import { WORKER_UPDATE } from "../constants";
+
 // given a React Class Component
 // take the name of a piece of state
 // and toggle its value
@@ -49,4 +51,13 @@ export function useToggleOnScroll(key) {
 // set the state back to a given initial state;
 export function toInitialState(initialState) {
   return this.setState({ ...initialState });
+}
+
+// upon receiving an event, if the event matches string
+// set update to true
+export function messageHandler(evt) {
+  const { data } = evt;
+  if (data.type === WORKER_UPDATE) {
+    return this.setState({ update: true });
+  }
 }

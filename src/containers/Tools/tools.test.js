@@ -32,20 +32,28 @@ describe("Tools", () => {
     value: removeEventListenerMock
   });
 
-  const tools = shallow(<Tools />, { disableLifecycleMethods: false });
+  const props = {
+    match: { params: { page: "aaa" } }
+  };
+
+  const tools = shallow(<Tools {...props} />, {
+    disableLifecycleMethods: false
+  });
   it("renders", () => {
     expect(tools).toBeDefined();
   });
 
   it("if show is false, does not show", () => {
     const show = tools.state("show");
-    expect(tools.getElement()).toEqual(null);
+    expect(React.isValidElement(tools.getElement())).toEqual(true);
     expect(show).toEqual(false);
   });
 
   it("adds listeners", () => {
     const instance = tools.instance().showButton;
+    const secondInstance = tools.instance().updateHandler;
     expect(add).toHaveBeenCalledWith("scroll", instance);
+    expect(add).toHaveBeenCalledWith("message", secondInstance);
   });
 
   it("does shows a button if show true", () => {
@@ -60,7 +68,9 @@ describe("Tools", () => {
 
   it("removes listeners", () => {
     const instance = tools.instance().showButton;
+    const secondInstance = tools.instance().updateHandler;
     tools.instance().componentWillUnmount();
-    expect(add).toHaveBeenCalledWith("scroll", instance);
+    expect(remove).toHaveBeenCalledWith("scroll", instance);
+    expect(remove).toHaveBeenCalledWith("message", secondInstance);
   });
 });

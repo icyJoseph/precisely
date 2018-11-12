@@ -4,8 +4,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import withData from "./containers/WithData";
 import Spinner from "./components/Spinner";
 
-import Tools from "./containers/Tools";
-
 // Define lazy imports
 const LazyNavBar = lazy(() =>
   import(/* webpackChunkName: "lazy-navbar" */ "./containers/NavBar")
@@ -21,6 +19,9 @@ const LazyCustomers = lazy(() =>
 );
 const LazyNoMatch = lazy(() =>
   import(/* webpackChunkName: "lazy-nomatch" */ "./containers/NoMatch")
+);
+const LazyTools = lazy(() =>
+  import(/* webpackChunkName: "lazy-tools" */ "./containers/Tools")
 );
 
 // Define suspenseful functions
@@ -64,6 +65,14 @@ export function SuspenseNoMatch(props) {
   );
 }
 
+export function SuspenseTools(props) {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <LazyTools {...props} />
+    </Suspense>
+  );
+}
+
 // NavBar renders when :page exists as a parameter
 // Then only one of Landing, Contracts or Customers renders
 // dataProps represents data passed from the withData HoC
@@ -74,7 +83,7 @@ export const Routes = dataProps => (
         path="/:page"
         render={props => <SuspenseNavBar {...props} {...dataProps} />}
       />
-      <Tools />
+      <Route path="/:page?" component={SuspenseTools} />
       <Switch>
         <Route
           exact
