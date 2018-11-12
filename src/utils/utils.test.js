@@ -3,7 +3,8 @@ import {
   partial,
   toggleState,
   arrayAsObjectById,
-  useToggleOnScroll
+  useToggleOnScroll,
+  sequence
 } from "./";
 
 describe("toggleState", () => {
@@ -125,5 +126,14 @@ describe("useToggleOnScroll", () => {
     fn();
 
     expect(toggle).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("sequence", () => {
+  const fn = jest.fn();
+  const fns = Array.from({ length: 10 }, () => fn);
+  sequence(...fns);
+  it("called all functions once", () => {
+    expect(fn).toHaveBeenCalledTimes(10);
   });
 });

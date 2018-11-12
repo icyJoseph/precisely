@@ -21,6 +21,10 @@ export const arrayAsObjectById = arr =>
     {}
   );
 
+// given a sequence of functions, execute them all!
+export const sequence = (...fns) =>
+  fns.map(fn => typeof fn == "function" && fn());
+
 // if the button is NOT showing and the scroll is more than 100
 // toggle it
 // if the button is showing and the scroll is less than 100
@@ -37,9 +41,7 @@ export function useToggleOnScroll(key) {
 
   if (aboveLimit) {
     return !value && toggle();
-  }
-  if (underLimit) {
+  } else if (underLimit) {
     return value && toggle();
   }
-  return null;
 }
