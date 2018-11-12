@@ -1,4 +1,10 @@
-import { goTo, partial, toggleState, arrayAsObjectById } from "./";
+import {
+  goTo,
+  partial,
+  toggleState,
+  arrayAsObjectById,
+  useToggleOnScroll
+} from "./";
 
 describe("toggleState", () => {
   const ctx = {
@@ -41,5 +47,83 @@ describe("arrayAsObjectById", () => {
       0: { id: 0, name: "a" },
       1: { id: 1, name: "b" }
     });
+  });
+});
+
+describe("useToggleOnScroll", () => {
+  const key = "val";
+
+  it("does not call the toggle under the limit with key false", () => {
+    Object.defineProperty(window, "scrollY", {
+      value: 98,
+      configurable: true,
+      writable: true
+    });
+
+    const toggle = jest.fn();
+
+    const ctx = {
+      state: { [key]: false },
+      toggle
+    };
+
+    const fn = useToggleOnScroll.bind(ctx, key);
+    fn();
+
+    expect(toggle).toHaveBeenCalledTimes(0);
+  });
+
+  it("calls the toggle under the limit with key false", () => {
+    Object.defineProperty(window, "scrollY", {
+      value: 98,
+      configurable: true,
+      writable: true
+    });
+    const toggle = jest.fn();
+
+    const ctx = {
+      state: { [key]: true },
+      toggle
+    };
+    const fn = useToggleOnScroll.bind(ctx, key);
+    fn();
+
+    expect(toggle).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not call the toggle above the limit with key true", () => {
+    Object.defineProperty(window, "scrollY", {
+      value: 102,
+      configurable: true,
+      writable: true
+    });
+    const toggle = jest.fn();
+
+    const ctx = {
+      state: { [key]: true },
+      toggle
+    };
+    const fn = useToggleOnScroll.bind(ctx, key);
+    fn();
+
+    expect(toggle).toHaveBeenCalledTimes(0);
+  });
+
+  it("calls the toggle above the limit with key false", () => {
+    Object.defineProperty(window, "scrollY", {
+      value: 102,
+      configurable: true,
+      writable: true
+    });
+    const toggle = jest.fn();
+
+    const ctx = {
+      state: { [key]: false },
+      toggle
+    };
+    const fn = useToggleOnScroll.bind(ctx, key);
+    fn();
+
+    expect(toggle).toHaveBeenCalledTimes(1);
   });
 });

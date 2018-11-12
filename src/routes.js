@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import withData from "./containers/WithData";
 import Spinner from "./components/Spinner";
 
+import Tools from "./containers/Tools";
+
 // Define lazy imports
 const LazyNavBar = lazy(() =>
   import(/* webpackChunkName: "lazy-navbar" */ "./containers/NavBar")
@@ -72,6 +74,7 @@ export const Routes = dataProps => (
         path="/:page"
         render={props => <SuspenseNavBar {...props} {...dataProps} />}
       />
+      <Tools />
       <Switch>
         <Route
           exact

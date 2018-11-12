@@ -20,3 +20,26 @@ export const arrayAsObjectById = arr =>
     (prev, { id, ...rest }) => ({ ...prev, [id]: { id, ...rest } }),
     {}
   );
+
+// if the button is NOT showing and the scroll is more than 100
+// toggle it
+// if the button is showing and the scroll is less than 100
+// toggle it
+// key specifies a value in the state which blocks the use of the toggle
+export function useToggleOnScroll(key) {
+  const { scrollY } = window;
+  const aboveLimit = scrollY > 100;
+  const underLimit = scrollY <= 100;
+  const {
+    toggle,
+    state: { [key]: value }
+  } = this;
+
+  if (aboveLimit) {
+    return !value && toggle();
+  }
+  if (underLimit) {
+    return value && toggle();
+  }
+  return null;
+}
