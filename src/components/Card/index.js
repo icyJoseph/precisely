@@ -16,7 +16,9 @@ export function List(elems) {
     <div className="spaced">
       <ListGroup flush>
         {elems.map(({ id, text }) => (
-          <ListGroupItem key={id}>{text}</ListGroupItem>
+          <ListGroupItem key={id} className="text-primary">
+            {text}
+          </ListGroupItem>
         ))}
       </ListGroup>
     </div>

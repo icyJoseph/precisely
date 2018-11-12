@@ -32,8 +32,9 @@ export function Confirmation({
       <ModalHeader>
         Confirm: {actionName} {items} {items === 1 ? "contract" : "contracts"}
       </ModalHeader>
-      <ModalBody>
-        This action affects customer: <p className="lead text-danger">{name}</p>
+      <ModalBody className="text-primary">
+        This action affects customer:{" "}
+        <span className="lead text-danger">{name}</span>
       </ModalBody>
       <ModalFooter>
         {/* Confirmation Button */}
