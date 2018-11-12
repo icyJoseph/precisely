@@ -3,9 +3,10 @@
 Solution demo available [here](https://zonked-test.surge.sh/).
 
 Test Coverage:
+
 | % Stmts | % Branch | % Funcs | % Lines |
------------------------------|----------|----------|----------|----------|
-91.02 | 89.36 | 80.56 | 90.85
+| ------- | -------- | ------- | ------- |
+| 91.02   | 89.36    | 80.56   | 90.85   |
 
 ## THE PROBLEM
 
