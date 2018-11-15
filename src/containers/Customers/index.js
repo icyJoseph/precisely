@@ -46,6 +46,7 @@ export class Customers extends Component {
       selectedCustomerContracts
     } = this.state;
 
+    // rather the confirmation customer
     const currentCustomer = selectedCustomerId && customers[selectedCustomerId];
 
     const customersIds = Object.keys(customers);

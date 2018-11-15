@@ -23,8 +23,7 @@ export class Tools extends Component {
   scrollToTop = () => window.scrollTo(0, 0);
 
   update = () => {
-    this.setState({ udpate: false });
-    return window.location.reload(true);
+    return this.setState({ udpate: false }, () => window.location.reload(true));
   };
 
   render() {

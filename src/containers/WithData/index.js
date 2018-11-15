@@ -28,14 +28,14 @@ function withData(toRender) {
       // The withData HOC wraps the Routes and not each container
       // as it was done in commit: f19a3f4e93bc3b15a73b63ec9173270665b9dd0e
 
-      // The Route are in change of spreading the relevant props down the line.
+      // The Routes are in charge of spreading the relevant props down the line.
 
       // Assumption 2: In this case I've setup the data as arrays,
       // however, for sake of showing understanding of object vs array handling
       // I convert the arrays to objects.
 
       // Additionally, in a case where the platform has thousands of contracts,
-      // finding them by Id on array will take more time complicated
+      // finding them by Id on array will take more time and be more complicated
       // than if we were to use plain JavaScript objects.
 
       // The transformation for thousands of objects will also take time, but only once.
