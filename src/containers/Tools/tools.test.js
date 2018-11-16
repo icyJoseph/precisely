@@ -7,6 +7,7 @@ describe("Tools", () => {
   const scrollMock = jest.fn();
   const add = jest.fn();
   const remove = jest.fn();
+  const mockReload = jest.fn();
 
   const scrollToMock = function(a, b) {
     return scrollMock(a, b);
@@ -32,8 +33,16 @@ describe("Tools", () => {
     value: removeEventListenerMock
   });
 
+  const mockLocation = (function(evt, callback) {
+    return { reload: mockReload };
+  })();
+
+  Object.defineProperty(window, "location", {
+    value: mockLocation
+  });
+
   const props = {
-    match: { params: { page: "aaa" } }
+    match: { params: { page: "" } }
   };
 
   const tools = shallow(<Tools {...props} />, {
@@ -57,13 +66,24 @@ describe("Tools", () => {
   });
 
   it("does shows a button if show true", () => {
-    tools.setState({ show: true });
-    expect(tools.find(Button)).toHaveLength(1);
+    tools.setState({ show: true, update: true });
+    expect(tools.find(Button)).toHaveLength(2);
   });
 
   it("does scrolls to top on click", () => {
-    tools.find(Button).simulate("click");
+    tools
+      .find(Button)
+      .at(1)
+      .simulate("click");
     expect(scrollMock).toHaveBeenCalledWith(0, 0);
+  });
+
+  it("reloads", () => {
+    tools
+      .find(Button)
+      .at(0)
+      .simulate("click");
+    expect(mockReload).toHaveBeenCalledWith(true);
   });
 
   it("removes listeners", () => {

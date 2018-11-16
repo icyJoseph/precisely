@@ -23,9 +23,11 @@ export class Tools extends Component {
   scrollToTop = () => window.scrollTo(0, 0);
 
   update = () => {
-    return this.setState({ udpate: false }, () => window.location.reload(true));
+    return this.setState({ udpate: false }, this.reload);
   };
 
+  reload = () => window.location.reload(true)
+ 
   render() {
     const { show, update } = this.state;
     const {
